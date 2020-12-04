@@ -1,5 +1,6 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import CheckoutForm from "./CheckoutForm";
 
 // Write up the two tests here and make sure they are testing what the title shows
@@ -7,13 +8,13 @@ import CheckoutForm from "./CheckoutForm";
 test("form header renders", () => {
   render(<CheckoutForm />);
   const header = screen.queryByText(/checkout form/i);
-  // expect(header).toBeInTheDocument();
-  // expect(header).toBeTruthy();
+  expect(header).toBeInTheDocument();
+  expect(header).toBeTruthy();
 });
 
 test("form shows success message on submit with form details", async () => {
   //Arrange: setup react component
-  render(<ContactForm />);
+  render(<CheckoutForm />);
 
   //Act: Submit our form
   //  1. Query for our form elements
